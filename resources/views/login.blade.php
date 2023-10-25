@@ -122,15 +122,16 @@
               <h4 class="mb-2">Bienvenido 👋</h4>
               <p class="mb-4">Por favor inicia sesion</p>
 
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+              <form id="formAuthentication" class="mb-3" action="{{ route('login.store') }}" method="POST">
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email o Username</label>
+                  <label for="email" class="form-label">Email</label>
+                  @csrf
                   <input
                     type="text"
                     class="form-control"
                     id="email"
-                    name="email-username"
-                    placeholder="Ingresa tu email o contraseña"
+                    name="email"
+                    placeholder="Ingresa tu email"
                     autofocus
                   />
                 </div>
