@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('username');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('remember_token');
+            $table->string('remember_token')->nullable();
             $table->datetime('last_access');
             $table->bigInteger('updated_by');
             $table->boolean('is_admin')->default(0);

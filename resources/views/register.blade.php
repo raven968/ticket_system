@@ -1,7 +1,19 @@
 <!DOCTYPE html>
+
+<!-- =========================================================
+* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
+==============================================================
+
+* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
+* Created by: ThemeSelection
+* License: You must have a valid license purchased in order to legally use the theme for your project.
+* Copyright ThemeSelection (https://themeselection.com)
+
+=========================================================
+ -->
 <!-- beautify ignore:start -->
 <html
-  lang="es"
+  lang="en"
   class="light-style customizer-hide"
   dir="ltr"
   data-theme="theme-default"
@@ -15,10 +27,12 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Login Acompany Group</title>
+    <title>Crear Cuenta | Acompany Group</title>
+
+    <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/acompany1.ico" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/acompany1.ico') }}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +43,7 @@
     />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/boxicons.css')}}" />
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
@@ -45,7 +59,8 @@
     <!-- Helpers -->
     <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
 
-    
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('assets/js/config.js') }}"></script>
   </head>
 
@@ -55,41 +70,48 @@
     <div class="container-xxl">
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner">
-          <!-- Register -->
+          <!-- Register Card -->
           <div class="card">
             <div class="card-body">
               <!-- Logo -->
               <div class="app-brand justify-content-center">
-                
-                  <div>
-                    <img src="{{ asset('assets/img/logo.png') }}" alt="logo" style="width: 100px">
-                  </div>
-                
+                <div>
+                    <img src="{{ asset('assets/img/logo.png') }}" alt="acompany group logo" style="width: 100px">
+                </div>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">Bienvenido 👋</h4>
-              <p class="mb-4">Por favor inicia sesion</p>
-              <x-messages />
-              <form id="formAuthentication" class="mb-3" action="{{ route('login.store') }}" method="POST">
+              <h4 class="mb-2">Tu aventura comienza aquí 🚀</h4>
+              <p class="mb-4">Encuentra de manera fácil tus candidatos locales</p>
+
+              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  @csrf
+                  <label for="name" class="form-label">Nombre Completo</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="email"
-                    name="email"
-                    placeholder="Ingresa tu email"
+                    id="name"
+                    name="name"
+                    placeholder="Nombre completo"
                     autofocus
                   />
                 </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="text" class="form-control" id="email" name="email" placeholder="email" />
+                </div>
+                <div class="mb-3">
+                    <label for="company" class="form-label">Empresa</label>
+                    <select id="company" name="company" class="form-select">
+                        <option>- Empresa -</option>
+                        <option value="1">Jabil</option>
+                        <option value="2">Flextronics</option>
+                        <option value="3">Agroindustrias de Andar</option>
+                        <option value="3">Maspromocionales</option>
+                        <option value="3">Lear</option>
+                    </select>
+                </div>
                 <div class="mb-3 form-password-toggle">
-                  <div class="d-flex justify-content-between">
-                    <label class="form-label" for="password">Contraseña</label>
-                    <a href="auth-forgot-password-basic.html">
-                      <small>¿Olvidaste tu contraseña?</small>
-                    </a>
-                  </div>
+                  <label class="form-label" for="password">Contraseña</label>
                   <div class="input-group input-group-merge">
                     <input
                       type="password"
@@ -102,24 +124,31 @@
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
                 </div>
-                
-                <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit">Iniciar sesion</button>
-                </div>
 
                 <div class="mb-3">
-                  <a class="btn btn-secondary d-grid w-100" href="{{ route('register.index') }}">Registrate</a>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
+                    <label class="form-check-label" for="terms-conditions">
+                      Estoy de acuerdo con las
+                      <a href="javascript:void(0);">Políticas de Privacidad y Términos</a>
+                    </label>
+                  </div>
                 </div>
+                <button class="btn btn-primary d-grid w-100">Registrarme</button>
               </form>
 
+              <p class="text-center">
+                <span>Ya tienes una Cuenta?</span>
+                <a href="{{ route('login.index') }}">
+                  <span>Inicia Sesión</span>
+                </a>
+              </p>
             </div>
           </div>
-          <!-- /Register -->
+          <!-- Register Card -->
         </div>
       </div>
     </div>
-
-    <!-- / Content -->
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
@@ -135,7 +164,6 @@
 
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
-    <script src="{{ asset('assets/js/ui-toasts.js') }}"></script>
 
     <!-- Page JS -->
 
