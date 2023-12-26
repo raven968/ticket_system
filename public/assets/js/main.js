@@ -116,3 +116,8 @@ let menu, animate;
   // Auto update menu collapsed/expanded based on the themeConfig
   window.Helpers.setCollapsed(true, false);
 })();
+
+$('.clickable-row').click(function() {
+  let link = $(this).data('link')
+  location.href = link
+})

@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
-use App\Http\ViewComposers\{
+use App\Resources\Composers\{
     AbilitiesComposer
 };
 

@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>@yield('title') | Operadores Maquiladora</title>
 
     <meta name="description" content="" />
 
@@ -94,6 +94,15 @@
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
+
+            @foreach ($abilities as $ability)
+            <li class="menu-item @if(strpos(Route::currentRouteName(), $ability->route) === 0) active @endif">
+              <a href="{{ route($ability->route.'.index') }}" class="menu-link" style="color: rgb(19, 101, 223) !important;">
+                <i class="menu-icon tf-icons {{$ability->icon}}"></i>
+                <div data-i18n="Analytics">{{ $ability->title }}</div>
+              </a>
+            </li>
+            @endforeach
             
           </ul>
         </aside>
