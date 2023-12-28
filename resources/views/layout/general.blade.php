@@ -88,7 +88,7 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item">
+            <li class="menu-item @if(strpos(Route::currentRouteName(), 'home') === 0) active @endif">
               <a href="{{ route('home') }}" class="menu-link" style="color: rgb(19, 101, 223) !important;">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>

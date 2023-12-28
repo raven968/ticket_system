@@ -300,7 +300,7 @@ button.list-group-item-primary.active {
 }
 
 .nav-pills .nav-link.active, .nav-pills .nav-link.active:hover, .nav-pills .nav-link.active:focus {
-  background-color: #696cff;
+  background-color: rgb(19, 101, 223);
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(105, 108, 255, 0.4);
 }
@@ -748,11 +748,11 @@ html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-lin
   color: #696cff;
 }
 .bg-menu-theme .menu-inner > .menu-item.active > .menu-link {
-  color: #696cff;
-  background-color: rgba(105, 108, 255, 0.16) !important;
+  color: rgb(19, 101, 223);
+  background-color: rgba(19, 101, 223, 0.16) !important;
 }
 .bg-menu-theme .menu-inner > .menu-item.active:before {
-  background: #696cff;
+  background: rgb(19, 101, 223);
 }
 .bg-menu-theme .menu-sub > .menu-item > .menu-link:before {
   background-color: #b4bdc6 !important;

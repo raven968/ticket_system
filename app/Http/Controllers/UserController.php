@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{User, Company};
+use App\Models\{User, Company, Ability};
 use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
@@ -39,10 +39,12 @@ class UserController extends Controller
     {
 
         $companies = Company::where('active', 1)->get();
+        $abilities = Ability::whereIsListable(1)->orderBy('group')->get();
 
         return view('users.show', [
             'user' => $user,
-            'companies' => $companies
+            'companies' => $companies,
+            'abilities' => $abilities
         ]);
     }
 
@@ -53,6 +55,10 @@ class UserController extends Controller
         $user->update([
             'updated_by' => \Auth::user()->id,
         ]);
+
+        $abilities = $req->get('abilities', []);
+
+        \Bouncer::sync($user)->abilities( $abilities );
 
         return redirect()->back()->message('success', 'Se actualizo el usuario exitosamente.');
     }
