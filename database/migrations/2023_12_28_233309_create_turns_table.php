@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('turns', function (Blueprint $table) {
             $table->id();
+            $table->string('turn');
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }
