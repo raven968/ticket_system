@@ -14,5 +14,6 @@ Route::middleware('auth')->group(function() {
     Route::resource('zones', 'ZoneController')->names('zones')->middleware('can:zones, App\Models\Zone');
     Route::resource('turns', 'TurnController')->names('turns')->middleware('can:turns, App\Models\Turn');
     Route::resource('education_levels', 'EducationLevelController')->names('education_levels')->middleware('can:education_levels, App\Models\EducationLevel');
+    Route::resource('areas', 'AreaController')->names('areas')->middleware('can:areas, App\Models\Area');
         
 });
