@@ -16,5 +16,6 @@ Route::middleware('auth')->group(function() {
     Route::resource('education_levels', 'EducationLevelController')->names('education_levels')->middleware('can:education_levels, App\Models\EducationLevel');
     Route::resource('areas', 'AreaController')->names('areas')->middleware('can:areas, App\Models\Area');
     Route::resource('specialties', 'SpecialtyController')->names('specialties')->middleware('can:specialties, App\Models\Specialty');
+    Route::resource('contractors', 'ContractorController')->names('contractors')->middleware('can:contractors, App\Models\User');
         
 });
