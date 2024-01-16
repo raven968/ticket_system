@@ -49,4 +49,11 @@ class ZoneController extends Controller
 
     }
 
+    public function apiRouteGetZones()
+    {
+        $zones = Zone::select(['id', 'zone'])->where('active', 1)->get();
+
+        return response()->json($zones);
+    }
+
 }

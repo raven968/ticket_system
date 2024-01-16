@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{ Area };
+use App\Models\{ Area, State, City };
 use App\Http\Requests\AreaRequest;
 
 class AreaController extends Controller
@@ -54,5 +54,29 @@ class AreaController extends Controller
 
         return redirect()->back()->message('info', 'Area actualizada correctamente');
         
+    }
+
+    public function apiRouteGetAreas()
+    {
+        $areas = Area::select(['id', 'area'])->where('active', 1)->get();
+
+        return response()->json($areas);
+    }
+
+    public function apiRouteGetStates()
+    {
+        $states = State::select(['state'])->get();
+
+        return response()->json($states);
+    }
+
+    public function apiRouteGetCities(Request $req)
+    {
+
+        $state = State::where('state', $req->state)->first();
+
+        $cities = City::select(['city'])->where('state_id', $state->id)->get();
+
+        return response()->json($cities);
     }
 }

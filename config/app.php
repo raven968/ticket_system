@@ -171,6 +171,7 @@ return [
         App\Providers\ResponseServiceProvider::class,
         App\Providers\ResponseServiceProvider::class,
         App\Providers\ViewComposerProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
     ])->toArray(),
 
     /*

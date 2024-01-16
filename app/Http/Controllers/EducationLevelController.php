@@ -52,4 +52,13 @@ class EducationLevelController extends Controller
         return redirect()->back()->message('info', 'Nivel de educación actualizado');
 
     }
+
+    public function apiRouteGetEducationLevels()
+    {
+
+        $education_levels = EducationLevel::selectRaw('id, education_level AS scholarship')->where('active', 1)->get();
+
+        return response()->json($education_levels);
+
+    }
 }

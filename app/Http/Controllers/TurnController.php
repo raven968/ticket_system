@@ -49,4 +49,13 @@ class TurnController extends Controller
         return redirect()->back()->message('info', 'Turno Actualizado');
 
     }
+
+    public function apiRouteGetTurns()
+    {
+
+        $turns = Turn::select(['id','turn'])->where('active', 1)->get();
+
+        return response()->json($turns);
+
+    }
 }
