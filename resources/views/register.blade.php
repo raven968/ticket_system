@@ -82,16 +82,43 @@
               <!-- /Logo -->
               <h4 class="mb-2">Tu aventura comienza aquí 🚀</h4>
               <p class="mb-4">Encuentra de manera fácil tus candidatos locales</p>
-
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+              <x-messages />
+              <form id="formAuthentication" class="mb-3" action="{{ route('register.store') }}" method="POST">
+                @csrf
+                <input type="hidden" name="last_access" value="{{ date('Y-m-d H:i:s') }}">
+                <input type="hidden" name="updated_by" value="0">
+                <input type="hidden" name="is_admin" value="0">
+                <input type="hidden" name="is_webmaster" value="0">
                 <div class="mb-3">
-                  <label for="name" class="form-label">Nombre Completo</label>
+                  <label for="name" class="form-label">Nombre</label>
                   <input
                     type="text"
                     class="form-control"
                     id="name"
                     name="name"
-                    placeholder="Nombre completo"
+                    placeholder="Nombre"
+                    autofocus
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="last_name" class="form-label">Apellido</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="last_name"
+                    name="last_name"
+                    placeholder="Apellido"
+                    autofocus
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="username" class="form-label">Nombre de Usuario</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    name="username"
+                    placeholder="Nombre de Ususario: rhEmpresa87"
                     autofocus
                   />
                 </div>
@@ -100,14 +127,12 @@
                   <input type="text" class="form-control" id="email" name="email" placeholder="email" />
                 </div>
                 <div class="mb-3">
-                    <label for="company" class="form-label">Empresa</label>
-                    <select id="company" name="company" class="form-select">
+                    <label for="company_id" class="form-label">Empresa</label>
+                    <select id="company_id" name="company_id" class="form-select">
                         <option>- Empresa -</option>
-                        <option value="1">Jabil</option>
-                        <option value="2">Flextronics</option>
-                        <option value="3">Agroindustrias de Andar</option>
-                        <option value="3">Maspromocionales</option>
-                        <option value="3">Lear</option>
+                        @foreach ($companies as $company)
+                            <option value="{{ $company->id }}">{{ $company->company }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="mb-3 form-password-toggle">
@@ -127,10 +152,10 @@
 
                 <div class="mb-3">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
+                    <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" required />
                     <label class="form-check-label" for="terms-conditions">
                       Estoy de acuerdo con las
-                      <a href="javascript:void(0);">Políticas de Privacidad y Términos</a>
+                      <a href="{{ route('aviso') }}">Aviso de Privacidad</a> y <a href="{{ route('terminos') }}">Términos y Condiciones</a>
                     </label>
                   </div>
                 </div>

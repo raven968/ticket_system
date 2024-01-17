@@ -13,8 +13,8 @@ class CompanySeeder extends Seeder
     public function run(): void
     {
         \App\Models\Company::create([
-            'company' => 'Raven Tec',
-            'email' => 'ravenweb968@gmail.com',
+            'company' => 'Operadores Maquiladora',
+            'email' => 'servicio@operadoresmaquiladora.com',
             'is_webmaster' => 1
         ]);
     }

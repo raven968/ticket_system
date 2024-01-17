@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 Route::resource('/login', 'LoginController')->names('login');
 Route::get('logout', 'LoginController@logout')->name('logout');
 Route::resource('/register', 'RegisterController')->names('register');
+Route::get('/aviso-de-privacidad', 'LegalController@aviso')->name('aviso');
+Route::get('/terminos-y-condiciones', 'LegalController@terminos')->name('terminos');
 
 Route::middleware('auth')->group(function() {
 

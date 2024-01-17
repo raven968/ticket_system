@@ -33,4 +33,11 @@ class UserRequest extends FormRequest
         return $validated;
     }
 
+    public function messages()
+    {
+        return [
+            'email.unique' => 'La dirección de correo electrónico ya está en uso.'
+        ];
+    }
+
 }
