@@ -56,4 +56,11 @@ class SpecialtyController extends Controller
         
     }
 
+    public function apiRouteGetSpecialties()
+    {
+        $specialties = Specialty::select(['id', 'specialty AS area'])->where('active', 1)->get();
+
+        return response()->json($specialties);
+    }
+
 }

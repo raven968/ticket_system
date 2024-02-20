@@ -58,7 +58,7 @@ class AreaController extends Controller
 
     public function apiRouteGetAreas()
     {
-        $areas = Area::select(['id', 'area'])->where('active', 1)->get();
+        $areas = Area::select(['area'])->where('active', 1)->get();
 
         return response()->json($areas);
     }

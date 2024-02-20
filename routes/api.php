@@ -11,6 +11,7 @@ Route::get('states', 'AreaController@apiRouteGetStates')->name('api_get_states')
 Route::get('cities', 'AreaController@apiRouteGetCities')->name('api_get_cities');
 Route::get('zones', 'ZoneController@apiRouteGetZones')->name('api_get_zones');
 Route::get('turns', 'TurnController@apiRouteGetTurns')->name('api_get_turns');
+Route::get('specialties', 'SpecialtyController@apiRouteGetSpecialties')->name('api_get_specialties');
 Route::get('education-levels', 'EducationLevelController@apiRouteGetEducationLevels')->name('api_get_education_levels');
 
 Route::middleware('jwt.verify')->group(function(){
