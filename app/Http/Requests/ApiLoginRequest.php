@@ -17,7 +17,7 @@ class ApiLoginRequest extends FormRequest
     }
 
     function login(){
-        $postulant = Postulant::where('cellphone', $this->cellphone)->first();
+        $postulant = Postulant::where('cellphone', $this->cellphone)->orderBy('created_at', 'desc')->first();
 
         if (!is_null($postulant) && Hash::check($this->password, $postulant->password) && $token = $postulant->getToken())
         {
